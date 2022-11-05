@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Home Page</title>
+{% endblock title %}
+
+{% block content %}
+
+    <form method="POST" style="width:50%;" class="m-4" enctype="multipart/form-data">
+        <h1>Please Upload the Dataset in CSV format</h1>
+        {% csrf_token %}
+        <label for="file"></label>
+        <input class="form-control" type="file" name="file" id="file">
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+{% endblock content %}
+
