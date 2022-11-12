@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-
+{% comment %} Age,Internships,CGPA,Hostel,HistoryOfBacklogs,Stream_Computer Science,Stream_Electrical,Stream_Electronics And Communication,Stream_Information Technology,Stream_Mechanical,Gender_Male
+ {% endcomment %}
 {% block title %}
     <title>Home Page</title>
 {% endblock title %}
@@ -7,10 +8,49 @@
 {% block content %}
 
     <form method="POST" style="width:50%;" class="m-4" enctype="multipart/form-data">
-        <h1>Please Upload the Dataset in CSV format</h1>
         {% csrf_token %}
-        <label for="file"></label>
-        <input class="form-control" type="file" name="file" id="file">
+        <h1>Please Upload the Dataset in CSV format</h1>
+        <div style="display:flex; flex-direction: column">
+            <label class="form-label mt-4" for="age">Age</label>
+            <input class="form-control" type="number" name="age" id="age">
+    
+            <label class="form-label mt-4" for="internships">Internships</label>
+            <input class="form-control" type="number" name="internships" id="internships">
+    
+            <label class="form-label mt-4" for="cgpa">CGPA</label>
+            <input class="form-control" type="number" name="cgpa" id="cgpa">
+        </div>
+
+        <div class="btn-group m-3" role="group" aria-label="Basic checkbox toggle button group">
+            <input  class="btn-check" type="checkbox" name="hostel" id="hostel" autocomplete="off">
+            <label class="btn btn-primary" for="hostel">Hostel</label>
+    
+            <input class="btn-check" type="checkbox" name="historyOfBacklogs" id="historyOfBacklogs" autocomplete="off">
+            <label class="btn btn-primary" for="historyOfBacklogs">HistoryOfBacklogs</label>
+        </div>
+
+
+        <div class="btn-group m-3" role="group" aria-label="Basic radio toggle button group">
+            <input class="btn-check" type="radio" value='cs' name="stream" id="computerScience" autocomplete="off" checked="">
+            <label class="btn btn-outline-primary" for="computerScience">Computer Science</label>
+    
+            <input class="btn-check" type="radio" name="stream" value="ec" id="electrical" autocomplete="off" checked="">
+            <label class="btn btn-outline-primary" for="electrical">Electrical</label>
+    
+            <input  class="btn-check" type="radio" name="stream" value="ece" id="ece" autocomplete="off" checked="">
+            <label  class="btn btn-outline-primary"for="ece">Electrionics and Communication</label>
+    
+            <input  class="btn-check" type="radio" name="stream" value="it" id="it" autocomplete="off" checked="">
+            <label  class="btn btn-outline-primary" for="it">Information and Technology</label>
+
+            <input  class="btn-check" type="radio" name="stream" value="me" id="me" autocomplete="off" checked="">
+            <label  class="btn btn-outline-primary" for="me">Mechanical</label>
+        </div>
+
+        <div class="btn-group m-3" role="group" aria-label="Basic radio toggle button group">
+            <input class="btn-check" type="checkbox" value='Male' name="gender" id="male" autocomplete="off">
+            <label class="btn btn-outline-primary" for="male">Male</label>
+        </div><br>
         <input type="submit" class="btn btn-primary" value="Submit">
     </form>
 {% endblock content %}
